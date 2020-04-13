@@ -1,11 +1,13 @@
 var ranNum = Math.floor(Math.random() * 10) + 1;
 var arvausCount = 1;
-var buton = document.getElementsByClassName('arvaus');
 
 
 console.log(ranNum);
 
+
 function arvaus(n) {
+  var tulos = document.getElementById('tulos')
+  var peli = document.getElementById('peli')
   var one = document.getElementById('one');
   var two = document.getElementById('two');
   var three = document.getElementById('three');
@@ -17,15 +19,30 @@ function arvaus(n) {
   var nine = document.getElementById('nine');
   var ten = document.getElementById('ten');
   if (n === ranNum) {
-    alert('Oikein!');
-    reset();
+    switch (arvausCount) {
+      case 1:
+        tulos.innerHTML = '';
+        peli.innerHTML = '<b>OIKEIN EKALLA YRITYKSELLÄ!</b><p><button type="button" onClick="return reset()">Yritä uudelleen</button></p>';
+        break;
+      default:
+        tulos.innerHTML = '';
+        peli.innerHTML = 'Oikein!<p><button type="button" onClick="return reset()">Yritä uudelleen</button></p>';
+        break;
+    }
   } else if (arvausCount === 3) {
-    alert('Liian monta arvausta!');
-    reset();
+    tulos.innerHTML = '';
+    peli.innerHTML = 'Liian monta arvausta!<p><button type="button" onClick="return reset()">Yritä uudelleen</button></p>';
   } else {
-    alert('Väärin!');
     if (n < ranNum) {
-      alert('Even higher!');
+      tulos.innerHTML = 'Numero on isompi'
+      switch(arvausCount) {
+        case 1:
+          tulos.innerHTML = 'Numero on isompi<br />2 yritystä jäljellä';
+          break;
+        case 2:
+          tulos.innerHTML = 'Numero on isompi<br />1 yritys jäljellä';
+          break;
+      }
       switch(n) {
         case 1:
           one.style.visibility = 'hidden';
@@ -92,7 +109,15 @@ function arvaus(n) {
           break;
       }
     } else if (n > ranNum) {
-      alert('Even lower.');
+      tulos.innerHTML = 'Numero on pienempi';
+      switch(arvausCount) {
+        case 1:
+          tulos.innerHTML = 'Numero on pienempi<br />2 yritystä jäljellä';
+          break;
+        case 2:
+          tulos.innerHTML = 'Numero on pienempi<br />1 yritys jäljellä';
+          break;
+      }
       switch(n) {
         case 2:
           two.style.visibility = 'hidden';
@@ -163,40 +188,13 @@ function arvaus(n) {
   arvausCount++;
 }
 
+
 function reset() {
   ranNum = 0;
   ranNum = Math.floor(Math.random() * 10) + 1;
-  arvausCount = 0;
-  if (one.style.visibility === 'hidden') {
-    one.style.visibility = 'visible';
-  }
-  if (two.style.visibility === 'hidden') {
-    two.style.visibility = 'visible';
-  }
-  if (three.style.visibility === 'hidden') {
-    three.style.visibility = 'visible';
-  }
-  if (four.style.visibility === 'hidden') {
-    four.style.visibility = 'visible';
-  }
-  if (five.style.visibility === 'hidden') {
-    five.style.visibility = 'visible';
-  }
-  if (six.style.visibility === 'hidden') {
-    six.style.visibility = 'visible';
-  }
-  if (seven.style.visibility === 'hidden') {
-    seven.style.visibility = 'visible';
-  }
-  if (eight.style.visibility === 'hidden') {
-    eight.style.visibility = 'visible';
-  }
-  if (nine.style.visibility === 'hidden') {
-    nine.style.visibility = 'visible';
-  }
-  if (ten.style.visibility === 'hidden') {
-    ten.style.visibility = 'visible';
-  }
+  arvausCount = 1;
+  tulos.innerHTML = 'Arvaa numero!<br />3 yritystä jäljellä'
+  peli.innerHTML = '<button type="button" id="one" onClick="return arvaus(1)">1</button><button type="button" id="two" onClick="return arvaus(2)">2</button><button type="button" id="three" onClick="return arvaus(3)">3</button><button type="button" id="four" onClick="return arvaus(4)">4</button><button type="button" id="five" onClick="return arvaus(5)">5</button><button type="button" id="six" onClick="return arvaus(6)">6</button><button type="button" id="seven" onClick="return arvaus(7)">7</button><button type="button" id="eight" onClick="return arvaus(8)">8</button><button type="button" id="nine" onClick="return arvaus(9)">9</button><button type="button" id="ten" onClick="return arvaus(10)">10</button>'
 
   console.log(ranNum);
 }
