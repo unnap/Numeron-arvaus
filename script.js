@@ -189,7 +189,6 @@ function arvaus(n) {
 
 
 function reset() {
-  ranNum = 0;
   ranNum = Math.floor(Math.random() * 10) + 1;
   arvausCount = 1;
   tulos.innerHTML = 'Arvaa numero!<br />3 yritystä jäljellä'
