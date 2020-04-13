@@ -18,6 +18,7 @@ function arvaus(n) {
   var eight = document.getElementById('eight');
   var nine = document.getElementById('nine');
   var ten = document.getElementById('ten');
+
   if (n === ranNum) {
     switch (arvausCount) {
       case 1:
@@ -34,7 +35,6 @@ function arvaus(n) {
     peli.innerHTML = 'Liian monta arvausta!<p><button type="button" onClick="return reset()">Yritä uudelleen</button></p>';
   } else {
     if (n < ranNum) {
-      tulos.innerHTML = 'Numero on isompi'
       switch(arvausCount) {
         case 1:
           tulos.innerHTML = 'Numero on isompi<br />2 yritystä jäljellä';
@@ -109,7 +109,6 @@ function arvaus(n) {
           break;
       }
     } else if (n > ranNum) {
-      tulos.innerHTML = 'Numero on pienempi';
       switch(arvausCount) {
         case 1:
           tulos.innerHTML = 'Numero on pienempi<br />2 yritystä jäljellä';
