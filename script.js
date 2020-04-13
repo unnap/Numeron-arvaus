@@ -32,7 +32,7 @@ function arvaus(n) {
     }
   } else if (arvausCount === 3) {
     tulos.innerHTML = '';
-    peli.innerHTML = 'Liian monta arvausta!<p><button type="button" onClick="return reset()">Yritä uudelleen</button></p>';
+    peli.innerHTML = 'Liian monta arvausta!<br >Oikea vastaus olisi ollut <b><font color=#f00>' + ranNum + '</font></b><p><button type="button" onClick="return reset()">Yritä uudelleen</button></p>';
   } else {
     if (n < ranNum) {
       switch(arvausCount) {
