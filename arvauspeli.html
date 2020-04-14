@@ -1,34 +1,32 @@
-<html> 
+<html>
 <head> 
-    <meta charset="utf-8"> 
-    <title>Numeron arvaus peli!</title> 
-  
-    <style> 
-        html { 
-    font-family: Verdana;
-    color: white; 
-    } 
-      
-        body { 
-    width: 100%; 
-    max-width: 400px; 
-    min-width: 480px; 
-    margin: 0 auto; 
-    align-content: center;
-    background-color: black;
-    
-    } 
-    </style> 
-</head> 
-  
-<body> 
-<h1>Arvaa Numero</h1> 
-  
-<p>Arvaa numero 1-10 väliltä. Katsotaan voitatko?</p> 
-  
-<div class="form"> 
-    <label for="guessField">Syötä arvaus: </label> 
-    <input type = "text" id = "guessField" class = "guessField"> 
-    <input type = "submit" value = "Arvaa!" 
-           class = "guessSubmit" id = "submitguess"> 
-</div> 
+    <meta charset="utf-8">
+    <title>Numeron arvaus peli!</title>
+    <script src="script.js"></script>
+    <link href="tyyli.css" rel="stylesheet">
+</head>
+
+<body>
+<h1>Arvaa Numero</h1>
+
+<p>Arvaa numero 1-10 väliltä. Katsotaan voitatko?</p>
+<div id="peli">
+    <button type="button" id="one" onClick="return arvaus(1)">1</button>
+    <button type="button" id="two" onClick="return arvaus(2)">2</button>
+    <button type="button" id="three" onClick="return arvaus(3)">3</button>
+    <button type="button" id="four" onClick="return arvaus(4)">4</button>
+    <button type="button" id="five" onClick="return arvaus(5)">5</button>
+    <button type="button" id="six" onClick="return arvaus(6)">6</button>
+<button type="button" id="seven" onClick="return arvaus(7)">7</button>
+<button type="button" id="eight" onClick="return arvaus(8)">8</button>
+<button type="button" id="nine" onClick="return arvaus(9)">9</button>
+<button type="button" id="ten" onClick="return arvaus(10)">10</button>
+</div>
+    <div id="tulos" tabindex="0">
+        Arvaa numero!<br />
+        3 yritystä jäljellä
+    </div>
+</body>
+
+</html>
+
